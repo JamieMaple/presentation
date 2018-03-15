@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>presentation</title>
+
+		<link rel="stylesheet" href="/dist/36fd69ec736c6113c5ef0bd1df15a6a6.css">
+		<link rel="stylesheet" href="/dist/ac21a81bbd2ec1775f9248ab761fbda3.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/dist/3aa780af5fbc0448186a5c2e8d5612ff.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	<script src="/dist/36fd69ec736c6113c5ef0bd1df15a6a6.js"></script><script src="/dist/ac21a81bbd2ec1775f9248ab761fbda3.js"></script><script src="/dist/3aa780af5fbc0448186a5c2e8d5612ff.js"></script></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+					<section data-markdown="example.md"></section>
+			</div>
+		</div>
+
+		<script src="/dist/3c3ce0729f0c057f815ebe8cc12c645e.js"></script>
+		<script src="/dist/reveal.js.js"></script>
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+.reveal .slides section img {
+  margin: 0;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+}
+
+.design-cotainer {
+  display: flex;
+}
+.design-cotainer > :nth-child(n) {
+  flex: 1;
+}
+
+.browsers {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+.browsers .browser {
+  width: 100px;
+  height: 100px;
+}
+.frameworks {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+.frameworks .framework {
+  display: flex;
+  flex-direction: column;
+}
+.frameworks img {
+  height: 100px;
+  /* width: 100px; */
+}
