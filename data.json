@@ -1,0 +1,224 @@
+{
+  "2016": [
+    {
+      "name": "JavaScript",
+      "count": "1604219"
+    },
+    {
+      "name": "Java",
+      "count": "763783"
+    },
+    {
+      "name": "Python",
+      "count": "744054"
+    },
+    {
+      "name": "Ruby",
+      "count": "740610"
+    },
+    {
+      "name": "PHP",
+      "count": "478153"
+    },
+    {
+      "name": "C++",
+      "count": "330259"
+    },
+    {
+      "name": "CSS",
+      "count": "271782"
+    },
+    {
+      "name": "C#",
+      "count": "229985"
+    },
+    {
+      "name": "C",
+      "count": "202295"
+    },
+    {
+      "name": "Go",
+      "count": "188121"
+    },
+    {
+      "name": "Shell",
+      "count": "143071"
+    },
+    {
+      "name": "Objective C",
+      "count": "75478"
+    },
+    {
+      "name": "Scala",
+      "count": "70216"
+    },
+    {
+      "name": "Swift",
+      "count": "62284"
+    },
+    {
+      "name": "TypeScript",
+      "count": "55587"
+    }
+  ],
+  "2016open": [
+    {
+      "name": "Apollo-11",
+      "type": "Assembly"
+    },
+    {
+      "name": "redux",
+      "type": "JavaScript"
+    },
+    {
+      "name": "awesome",
+      "type": "Plaintext / Markdown"
+    },
+    {
+      "name": "FreeCodeCamp",
+      "type": "JavaScript"
+    },
+    {
+      "name": "d3",
+      "type": "JavaScript"
+    },
+    {
+      "name": "bootstrap",
+      "type": "JavaScript"
+    },
+    {
+      "name": "free-programming-books",
+      "type": "Plainte/Markdown"
+    },
+    {
+      "name": "electron",
+      "type": "C++"
+    },
+    {
+      "name": "react",
+      "type": "JavaScript"
+    },
+    {
+      "name": "netdata",
+      "type": "C"
+    },
+    {
+      "name": "hacker-scripts",
+      "type": "JavaScript"
+    },
+    {
+      "name": "lantern",
+      "type": "Go"
+    },
+    {
+      "name": "vscode",
+      "type": "TypeScript"
+    },
+    {
+      "name": "computer-science",
+      "type": "Plaintext/Markdown"
+    },
+    {
+      "name": "oh-my-zsh",
+      "type": "Shell"
+    },
+    {
+      "name": "tensorflow",
+      "type": "C++"
+    },
+    {
+      "name": "HEAD",
+      "type": "Plaintext/Markdown"
+    },
+    {
+      "name": "N1",
+      "type": "JavaScript"
+    },
+    {
+      "name": "gitignore",
+      "type": "Plaintext/Markdown"
+    },
+    {
+      "name": "You-Dont-Know-JS",
+      "type": "JavaScript"
+    },
+    {
+      "name": "react-native",
+      "type": "JavaScript"
+    },
+    {
+      "name": "vue",
+      "type": "JavaScript"
+    },
+    {
+      "name": "security-guide-for-developers",
+      "type": "Plaintext/Markdown"
+    },
+    {
+      "name": "swift",
+      "type": "C++"
+    }
+  ],
+  "2017": [
+    {
+      "name": "JavaScript",
+      "count": "2300000"
+    },
+    {
+      "name": "Python",
+      "count": "1000000"
+    },
+    {
+      "name": "Java",
+      "count": "986000"
+    },
+    {
+      "name": "Ruby",
+      "count": "870000"
+    },
+    {
+      "name": "PHP",
+      "count": "559000"
+    },
+    {
+      "name": "C++",
+      "count": "413000"
+    },
+    {
+      "name": "CSS",
+      "count": "335000"
+    },
+    {
+      "name": "C#",
+      "count": "326000"
+    },
+    {
+      "name": "Go",
+      "count": "285000"
+    },
+    {
+      "name": "C",
+      "count": "239000"
+    },
+    {
+      "name": "TypeScript",
+      "count": "239000"
+    },
+    {
+      "name": "Shell",
+      "count": "206000"
+    },
+    {
+      "name": "Objective C",
+      "count": "107000"
+    },
+    {
+      "name": "Scala",
+      "count": "99000"
+    },
+    {
+      "name": "Swift",
+      "count": "66000"
+    }
+  ]
+}
