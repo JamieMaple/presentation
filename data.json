@@ -165,12 +165,12 @@
       "count": "2300000"
     },
     {
-      "name": "Python",
-      "count": "1000000"
-    },
-    {
       "name": "Java",
       "count": "986000"
+    },
+    {
+      "name": "Python",
+      "count": "1000000"
     },
     {
       "name": "Ruby",
@@ -193,16 +193,12 @@
       "count": "326000"
     },
     {
-      "name": "Go",
-      "count": "285000"
-    },
-    {
       "name": "C",
       "count": "239000"
     },
     {
-      "name": "TypeScript",
-      "count": "239000"
+      "name": "Go",
+      "count": "285000"
     },
     {
       "name": "Shell",
@@ -219,6 +215,10 @@
     {
       "name": "Swift",
       "count": "66000"
+    },
+    {
+      "name": "TypeScript",
+      "count": "239000"
     }
   ]
 }

@@ -3,37 +3,39 @@
     .then(res => res.data).then(data => {
       const data16 = data['2016'].map(item => ({name: item.name, value: item.count}))
       const data16open = data['2016open'].map(item => ({type: item.type, name: item.name, value: Math.random() * 20 + 50}))
-      const data17 = data['2017'].map(item => ({name: item.name, value: item.count}))
+      const data17 = {
+        '2016': data['2016'].map(item => ({name: item.name, value: item.count})),
+        '2017': data['2017'].map(item => ({name: item.name, value: item.count})),
+      }
 
       Reveal.addEventListener('slidechanged', function(e) {
-        drawContainer['drawPie']({
-          data: data16,
-          isActive: e.indexh === 31,
-          other: {
-            subtext: 'from octoverse 2016',
-            chart: chartInstances.container161,
-          }
+        drawContainer['browsers']({
+          chart: echarts.init(document.getElementById('container-browsers')),
+          isActive: e.indexh === 5,
         })
-        drawContainer['2016open'](data16open, e.indexh === 32)
-        drawContainer['drawPie']({
-          data: data17,
+        drawContainer['2016']({
+          data: data16,
+          isActive: e.indexh === 32,
+        })
+        drawContainer['2016open']({
+          data: data16open,
           isActive: e.indexh === 33,
-          other: {
-            subtext: 'from octoverse 2017',
-            chart: chartInstances.container171,
-            formatter: function(data) {
-              var name = data.data.name
-              var val = Number(data.data.value)
-              var formated = data.seriesName + ' <br/> '
-
-              if (val >= 1000000) {
-                formated += name + ' : ' + (val / 1000000) + 'M'
-              } else if (val > 1000) {
-                formated += name + ' : ' + Math.floor(val / 1000) + 'K'
-              }
-              return formated + '(' + data.percent + '%)'
-            }
-          }
+        })
+        drawContainer['2017']({
+          data: {
+            '2016': data['2016'].slice(0, 8).reverse(),
+            '2017': data['2017'].slice(0, 8).reverse(),
+          },
+          isActive: e.indexh === 34,
+          chart: echarts.init(document.getElementById('container-17-1')),
+        })
+        drawContainer['2017']({
+          data: {
+            '2016': data['2016'].slice(8, 15).reverse(),
+            '2017': data['2017'].slice(8, 15).reverse(),
+          },
+          isActive: e.indexh === 35,
+          chart: echarts.init(document.getElementById('container-17-2')),
         })
       })
     })
@@ -41,7 +43,6 @@
   var chartInstances = {
       container161: echarts.init(document.getElementById('container-16-1')),
       container162: echarts.init(document.getElementById('container-16-2')),
-      container171: echarts.init(document.getElementById('container-17-1')),
   }
 
   function getColorByType(type) {
@@ -60,20 +61,74 @@
   }
 
   var drawContainer = {
-    'drawPie': function({
+    'browsers'({chart, isActive}) {
+      console.log(isActive)
+      var option = {
+        title: {
+          text: 'Browser Market Share Worldwide',
+          subtext: 'Feb 2018',
+          textStyle: {
+            color: '#fff'
+          }
+        },
+        tooltip: {
+          trigger: 'item',
+          formatter: "{a} <br/>{b}: {d}%"
+        },
+        legend: {
+          orient: 'vertical',
+          x: 'right',
+          y: 'bottom',
+          data: ['Chrome', 'Safari', 'UC Browser', 'Firefox', 'Opera', 'IE', 'other'],
+          textStyle: {
+            color: '#fff'
+          }
+        },
+        series: [
+          {
+            name: 'Browser',
+            type: 'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+              normal: {
+                  show: false,
+                  position: 'center'
+              },
+              emphasis: {
+                  show: true,
+                  textStyle: {
+                      fontSize: '30',
+                      fontWeight: 'bold'
+                  }
+              }
+            },
+            data: [
+              {value: 57.41, name: 'Chrome'},
+              {value: 14.4, name: 'Safari'},
+              {value: 7.94, name: 'UC Browser'},
+              {value: 5.49, name: 'Firefox'},
+              {value: 3.7, name: 'Opera'},
+              {value: 3.05, name: 'IE'},
+              {value: 8.0, name: 'other'},
+            ]
+          }
+        ]
+      }
+      if (isActive) {
+        chart.setOption(option)
+      } else {
+        chart.clear()
+      }
+    },
+    '2016'({
       data,
       isActive,
-      other: {
-        text = '15 most popular languages PR on GitHub',
-        subtext,
-        chart,
-        formatter = '{a} <br/>{b} : {c} ({d}%)',
-      }
     }) {
       var option = {
         title: {
-          text: text,
-          subtext: subtext,
+          text: '15 most popular languages PR on GitHub',
+          subtext: 'from octoverse 2016',
           x: 'center',
           textStyle: {
             color: '#fff'
@@ -90,7 +145,7 @@
         },
         tooltip : {
           show: true,
-          formatter: formatter
+          formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
         calculable : true,
         animationDuration: 1500,
@@ -105,12 +160,15 @@
       }
       
       if (isActive) {
-        chart.setOption(option)
+        chartInstances.container161.setOption(option)
       } else {
-        chart.clear()
+        chartInstances.container161.clear()
       }
     },
-    '2016open': function(data, isActive){
+    '2016open'({
+      data,
+      isActive
+    }){
       var categories = Array.from(new Set(data.map(item => item.type))).map(item => ({name: item}))
       var option = {
         title: {
@@ -139,7 +197,7 @@
             name: item.name,
             value: item.value,
             category: item.type,
-            rotationRange: [-90, 90],
+            rotationRange: [-45, 45],
             rotationStep: 45,
             textStyle: {
               normal: {
@@ -156,5 +214,67 @@
         chartInstances.container162.clear()
       }
     },
+    '2017'({
+      data,
+      isActive,
+      chart,
+    }){
+      var option = {
+        title: {
+          text: '15 most popular languages PR on GitHub',
+          subtext: 'from octoverse 2016',
+          x: 'center',
+          textStyle: {
+            color: '#fff'
+          }
+        },
+        grid: {
+          height: '70%',
+        },
+        legend: {
+          show: true,
+          data: ['2016', '2017'],
+          orient: 'vertical',
+          right: 0,
+          textStyle: {
+            color: '#fff'
+          }
+        },
+        xAxis: {
+          type: 'value',
+          axisLabel: {
+            color: '#fff'
+          },
+          axisLine: {
+            color: '#fff'
+          }
+        },
+        yAxis: {
+          type: 'category',
+          data: data['2016'].map(item => item.name),
+          axisLabel: {
+            color: '#fff'
+          }
+        },        
+        series: [
+          {
+            name: '2017',
+            type: 'bar',
+            data: data['2017'].map(item => item.count),
+          },
+          {
+            name: '2016',
+            type: 'bar',
+            data: data['2016'].map(item => item.count),
+          },
+        ]
+      }
+
+      if (isActive) {
+        chart.setOption(option)
+      } else {
+        chart.clear()
+      }
+    }
   }
 })()
