@@ -32,6 +32,7 @@ npm manifest:
       "web": "http://demo.jamiemaple.com"
     },
     "devDependencies": {
+      "babel-preset-env": "^1.6.1",
       "express": "^4.15.2",
       "grunt": "^1.0.1",
       "grunt-autoprefixer": "^3.0.4",
@@ -42,8 +43,8 @@ npm manifest:
       "grunt-contrib-qunit": "~1.2.0",
       "grunt-contrib-uglify": "^2.3.0",
       "grunt-contrib-watch": "^1.0.0",
-      "grunt-sass": "^2.0.0",
       "grunt-retire": "^1.0.7",
+      "grunt-sass": "^2.0.0",
       "grunt-zip": "~0.17.1",
       "mustache": "^2.3.0",
       "socket.io": "^1.7.3"
@@ -59,7 +60,7 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 3
+  Exit code: 99
   Command: sh
   Arguments: -c grunt
   Directory: /Users/jamie/Desktop/Maple/presentation/2018-presentation
