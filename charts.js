@@ -1,4 +1,10 @@
 ;(function() {
+  const containerIndex = {
+    'browsers': 9,
+    '2016': 4,
+    '2016open': 5,
+    '2017': [6, 7]
+  }
   axios.get('./data.json')
     .then(res => res.data).then(data => {
       const data16 = data['2016'].map(item => ({name: item.name, value: item.count}))
@@ -11,22 +17,22 @@
       Reveal.addEventListener('slidechanged', function(e) {
         drawContainer['browsers']({
           chart: echarts.init(document.getElementById('container-browsers')),
-          isActive: e.indexh === 5,
+          isActive: e.indexh === containerIndex['browsers'],
         })
         drawContainer['2016']({
           data: data16,
-          isActive: e.indexh === 32,
+          isActive: e.indexh === containerIndex['2016'],
         })
         drawContainer['2016open']({
           data: data16open,
-          isActive: e.indexh === 33,
+          isActive: e.indexh === containerIndex['2016open'],
         })
         drawContainer['2017']({
           data: {
             '2016': data['2016'].slice(0, 8).reverse(),
             '2017': data['2017'].slice(0, 8).reverse(),
           },
-          isActive: e.indexh === 34,
+          isActive: e.indexh === containerIndex['2017'][0],
           chart: echarts.init(document.getElementById('container-17-1')),
         })
         drawContainer['2017']({
@@ -34,7 +40,7 @@
             '2016': data['2016'].slice(8, 15).reverse(),
             '2017': data['2017'].slice(8, 15).reverse(),
           },
-          isActive: e.indexh === 35,
+          isActive: e.indexh === containerIndex['2017'][1],
           chart: echarts.init(document.getElementById('container-17-2')),
         })
       })
@@ -62,7 +68,6 @@
 
   var drawContainer = {
     'browsers'({chart, isActive}) {
-      console.log(isActive)
       var option = {
         title: {
           text: 'Browser Market Share Worldwide',
@@ -70,10 +75,6 @@
           textStyle: {
             color: '#fff'
           }
-        },
-        tooltip: {
-          trigger: 'item',
-          formatter: "{a} <br/>{b}: {d}%"
         },
         legend: {
           orient: 'vertical',
@@ -92,8 +93,8 @@
             avoidLabelOverlap: false,
             label: {
               normal: {
-                  show: false,
-                  position: 'center'
+                  show: true,
+                  // position: 'center'
               },
               emphasis: {
                   show: true,
@@ -148,12 +149,12 @@
           formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
         calculable : true,
-        animationDuration: 1500,
         series: [
           {
             name: 'PR counts',
             type: 'pie',
             radius : [0, 140],
+            animationDuration: 1500,
             data
           }
         ]
@@ -162,7 +163,7 @@
       if (isActive) {
         chartInstances.container161.setOption(option)
       } else {
-        chartInstances.container161.clear()
+        // chartInstances.container161.clear()
       }
     },
     '2016open'({
@@ -211,7 +212,7 @@
       if (isActive) {
         chartInstances.container162.setOption(option)
       } else {
-        chartInstances.container162.clear()
+        // chartInstances.container162.clear()
       }
     },
     '2017'({
@@ -273,7 +274,7 @@
       if (isActive) {
         chart.setOption(option)
       } else {
-        chart.clear()
+        // chart.clear()
       }
     }
   }
